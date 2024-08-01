@@ -9,6 +9,9 @@
   "bin": {
     "@codenoobforreal/noobgen": "./dist/index.js"
   },
+  "publishConfig": {
+    "access": "public"
+  },
   "scripts": {
     "dev:tsc": "tsc --watch --preserveWatchOutput",
     "dev:build": "pnpm run build --watch",
@@ -16,7 +19,9 @@
     "build": "tsup-node src/index.ts --format cjs,esm --dts --minify",
     "lint": "tsc",
     "test": "vitest run",
-    "ci": "npm-run-all lint test build"
+    "ci": "npm-run-all lint test build",
+    "publish": "changeset publish",
+    "release": "npm-run-all build publish"
   },
   "keywords": [],
   "author": "",
