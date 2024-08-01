@@ -1,0 +1,35 @@
+{
+  "name": "@codenoobforreal/noobgen",
+  "version": "0.1.0",
+  "description": "",
+  "main": "dist/index.cjs",
+  "module": "dist/index.js",
+  "type": "module",
+  "types": "dist/index.d.ts",
+  "bin": {
+    "@codenoobforreal/noobgen": "./dist/index.js"
+  },
+  "scripts": {
+    "dev:tsc": "tsc --watch --preserveWatchOutput",
+    "dev:build": "pnpm run build --watch",
+    "dev": "npm-run-all --parallel dev:tsc dev:esbuild",
+    "build": "tsup-node src/index.ts --format cjs,esm --dts --minify",
+    "lint": "tsc",
+    "test": "vitest run",
+    "ci": "npm-run-all lint test build"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@changesets/cli": "^2.27.7",
+    "@types/node": "^22.00.0",
+    "npm-run-all2": "^6.2.2",
+    "tsup": "^8.2.3",
+    "typescript": "^5.5.4",
+    "vitest": "^2.0.5"
+  },
+  "dependencies": {
+    "commander": "^12.1.0"
+  }
+}
